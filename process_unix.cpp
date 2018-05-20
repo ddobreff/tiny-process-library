@@ -144,7 +144,7 @@ bool Process::try_get_exit_status(int &exit_status) noexcept {
     return false;
 
   id_type p = waitpid(data.id, &exit_status, WNOHANG);
-  if (p == 0)
+  if (p <= 0)
     return false;
 
   {
